@@ -1,0 +1,17 @@
+.ticket-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ticket-title {
+    font-weight: bold;
+  }
+  
+  .ticket-priority {
+    color: #007bff;
+  }
+  

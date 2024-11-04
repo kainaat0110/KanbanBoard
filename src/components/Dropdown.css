@@ -1,0 +1,12 @@
+.dropdown {
+    margin: 10px 0;
+  }
+  
+  .dropdown label {
+    margin-right: 10px;
+  }
+  
+  .dropdown select {
+    padding: 5px;
+  }
+  

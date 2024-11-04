@@ -1,0 +1,23 @@
+.grouping-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .group-button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .group-button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .group-button:hover {
+    background-color: #e0e0e0;
+  }
+  
