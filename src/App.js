@@ -2,26 +2,32 @@ import React, { useEffect, useState } from 'react';
 import Board from './components/Board';
 import GroupingButtons from './components/GroupingButtons';
 import SortingOptions from './components/SortingOptions';
-import fetchTickets from './services/api'; 
+import { fetchData } from './services/api';
 import './App.css';
+import Down from './icons/down.svg'
+import Display from './icons/Display.svg'
 
 function App() {
   const [tickets, setTickets] = useState([]); 
+  const [users, setUsers] = useState([]);
   const [groupBy, setGroupBy] = useState(localStorage.getItem('groupBy') || 'status');
   const [sortBy, setSortBy] = useState(localStorage.getItem('sortBy') || 'priority');
+  const [isOpen, setIsOpen] = useState(false);
 
-  const loadTickets = async () => {
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
+  const loadData = async () => {
     try {
-      const data = await fetchTickets();
-      console.log('Fetched tickets:', data); 
-      setTickets(data);
+      const { tickets, users } = await fetchData();
+      setTickets(tickets);
+      setUsers(users);
     } catch (error) {
-      console.error('Failed to load tickets:', error);
+      console.error('Failed to load data:', error);
     }
   };
 
   useEffect(() => {
-    loadTickets(); 
+    loadData();
   }, []);
 
   useEffect(() => {
@@ -31,13 +37,28 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Kanban Board</h1>
-      <div className="options">
-        <GroupingButtons setGroupBy={setGroupBy} currentGroup={groupBy} />
-        <SortingOptions setSortBy={setSortBy} />
+      <div className="display-dropdown">
+        <button variant="outline" onClick={toggleDropdown} className="display-button">
+          <img src={Display} style={{paddingRight: '0.3rem'}} alt="display" />
+          Display
+          <span style={{paddingRight: '0.3rem'}}><img src={Down} alt="down" /></span>
+        </button>
+        {isOpen && (
+          <div className="dropdown-content">
+            <GroupingButtons setGroupBy={setGroupBy} currentGroup={groupBy} />
+            <SortingOptions setSortBy={setSortBy} currentSort={sortBy} />
+          </div>
+        )}
       </div>
-      <Board tickets={tickets} groupBy={groupBy} sortBy={sortBy} />
-      {tickets.length === 0 && <p>No tickets available.</p>} {/* Display message when no tickets */}
+      <div style={{ transform: 'scale(0.7)', transformOrigin: 'top left' }} className='board'>
+        <Board 
+          tickets={tickets} 
+          users={users}
+          groupBy={groupBy} 
+          sortBy={sortBy} 
+        />
+        {tickets.length === 0 && <p>No tickets available.</p>}
+      </div>
     </div>
   );
 }

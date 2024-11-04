@@ -1,10 +1,9 @@
-// src/components/Dropdown.js
 import React from 'react';
 
 const Dropdown = ({ label, options, selectedValue, onChange }) => {
   return (
     <div className="dropdown">
-      <label>{label}</label>
+      <label style={{ paddingRight: '8px' }}>{label}</label>
       <select value={selectedValue} onChange={onChange}>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
@@ -15,5 +14,6 @@ const Dropdown = ({ label, options, selectedValue, onChange }) => {
     </div>
   );
 };
+
 
 export default Dropdown;

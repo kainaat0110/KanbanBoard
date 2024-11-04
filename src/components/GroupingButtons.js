@@ -1,5 +1,6 @@
 import React from 'react';
-import './GroupingButtons.css';
+import '../css/GroupingButtons.css';
+
 
 function GroupingButtons({ setGroupBy, currentGroup }) {
   const options = [
@@ -8,19 +9,25 @@ function GroupingButtons({ setGroupBy, currentGroup }) {
     { label: 'Priority', value: 'priority' },
   ];
 
+  const handleChange = (event) => {
+    setGroupBy(event.target.value);
+  };
+
   return (
-    <div className="grouping-buttons">
-      {options.map(option => (
-        <button
-          key={option.value}
-          className={`group-button ${currentGroup === option.value ? 'active' : ''}`}
-          onClick={() => setGroupBy(option.value)}
-        >
-          {option.label}
-        </button>
-      ))}
+    <div className="grouping-dropdown">
+      <label>Grouping:  </label>
+      <select value={currentGroup} onChange={handleChange}>
+        {options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
 
+
+
 export default GroupingButtons;
+

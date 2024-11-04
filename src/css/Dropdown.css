@@ -1,0 +1,16 @@
+.dropdown {
+    margin: 10px 0;
+    justify-content: space-evenly;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    gap: 8px
+  }
+  
+  .dropdown label {
+    justify-content: space-evenly;
+  }
+  
+  .options{
+    padding: 5px;
+  }
+  

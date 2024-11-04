@@ -1,15 +1,12 @@
 .board {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    width: fit-content;
   }
   
   .column {
     background: #f4f4f4;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 30%;
-    padding: 10px;
     overflow: auto;
   }
   
@@ -20,3 +17,6 @@
     border-bottom: 1px solid #ccc;
   }
   
+  .group{
+    padding: 1%;
+  }

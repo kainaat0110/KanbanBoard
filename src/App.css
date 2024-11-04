@@ -1,6 +1,5 @@
-/* src/App.css */
+
 .App {
-  padding: 20px;
   font-family: Arial, sans-serif;
 }
 
@@ -12,8 +11,44 @@
 
 .ticket-card {
   border: 1px solid #ddd;
-  padding: 15px;
   border-radius: 4px;
   background-color: #f9f9f9;
-  width: 200px; /* Adjust as needed */
+  width: 20rem; 
+}
+.display-dropdown{
+  padding: 2%;
+  background-color: white;
+  justify-content: left;
+  height: fit-content;
+}
+.board{
+  padding: 1%;
+  background-color: rgba(237, 234, 234, 0.866);
+  width: 130rem;
+  
+}
+.display-button{
+  display: flex; 
+  justify-content: space-evenly;                  
+  align-items: center;               
+  background-color: rgb(255, 255, 255);       
+  color: black;                    
+  padding: 0.2%;             
+  cursor: pointer;                   
+  font-size: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.dropdown-content{
+  display: grid;
+  margin-top: 1%;
+  width: 20rem;
+  height: 3rem;
+  background-color: rgba(249, 249, 249, 0.899);
+  padding: 1%;
+  justify-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: rgb(135, 133, 133);
+  font-weight: 600;
 }

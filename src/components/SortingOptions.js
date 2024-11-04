@@ -1,13 +1,31 @@
 import React from 'react';
-import './SortingOptions.css';
+import '../css/SortingOptions.css';
 
-function SortingOptions({ setSortBy }) {
+import Dropdown from './Dropdown';
+
+const SortingOptions = ({ setSortBy, currentSort }) => {
+  // Define sorting options here
+  const sortingOptions = [
+    { label: 'Priority', value: 'priority' },
+    { label: 'Title', value: 'title' },
+  ];
+
+  // Handle the change when a different option is selected
+  const handleSortChange = (event) => {
+    setSortBy(event.target.value);
+  };
+
   return (
-    <div className="sorting-options">
-      <button onClick={() => setSortBy('priority')}>Sort by Priority</button>
-      <button onClick={() => setSortBy('title')}>Sort by Title</button>
+    <div className='grouping-dropdown'>
+      <Dropdown
+      label="Sort by: "
+      options={sortingOptions}
+      selectedValue={currentSort}
+      onChange={handleSortChange}
+    />
     </div>
   );
-}
-
+};
 export default SortingOptions;
+
+
