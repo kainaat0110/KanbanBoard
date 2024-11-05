@@ -46,7 +46,7 @@ const priorityIcons = {
   0: noPriority,
 };
 
-const priorityOrder = ['0', '4', '3', '2', '1'];
+const priorityOrder = [ '4', '3', '2', '1', '0'];
 
 const Board = ({ tickets, users, groupBy, sortBy }) => {
   const groupedTickets = tickets.reduce((acc, ticket) => {
